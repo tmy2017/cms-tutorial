@@ -277,7 +277,11 @@ return [
             'driver' => Mysql::class,
             'persistent' => false,
             'timezone' => 'UTC',
-
+            // do NOT update to app_local.example.php! 
+            'host' => 'localhost',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'cake_cms',
             /**
              * For MariaDB/MySQL the internal default changed from utf8 to utf8mb4, aka full utf-8 support, in CakePHP 3.6
              */

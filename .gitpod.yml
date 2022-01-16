@@ -2,6 +2,8 @@ image: tmy2017/gitpod-pstorm-with-php71-mysql8:ver-1640846949
 tasks:
   # change version php 
   # php & composer binary are all out of /workspace hence can not do as init... must do everytime before workspace starts
+
+  # mysql is in workspace, hence can use init 
   - before: |
       sudo add-apt-repository ppa:ondrej/php -y && \
       sudo install-packages php7.2 php7.2-xdebug php7.2-mysql php7.2-intl php7.2-mbstring php7.2-curl php7.2-simplexml && \
@@ -13,6 +15,7 @@ tasks:
       cp config/.gitpod.env config/.env
       cp config/.gitpod.app_local.php config/app_local.php
     init: |
+      mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';"
       composer install -y
     command: |
       bin/cake server
