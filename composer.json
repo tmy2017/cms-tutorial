@@ -39,7 +39,8 @@
     "scripts": {
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-create-project-cmd": "App\\Console\\Installer::postInstall",
-        "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
+        "__COMMENT__": "not needed anymore - composer install warning message: The CakePHP plugin installer v1.3+ no longer requires the 'post-autoload-dump' hook. Please update your app's composer.json file and remove usage ", 
+        "__post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
         "check": [
             "@test",
             "@cs-check"
@@ -50,5 +51,11 @@
         "test": "phpunit --colors=always"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "cakephp/plugin-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }

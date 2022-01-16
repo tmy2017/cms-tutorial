@@ -78,6 +78,7 @@ class Installer
      */
     public static function createAppLocalConfig($dir, $io)
     {
+        // !! so post-install really will create app_local.php, and this app_local.php has precedence! OMG! 
         $appLocalConfig = $dir . '/config/app_local.php';
         $appLocalConfigTemplate = $dir . '/config/app_local.example.php';
         if (!file_exists($appLocalConfig)) {

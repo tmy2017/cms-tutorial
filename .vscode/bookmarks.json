@@ -9,6 +9,26 @@
 					"label": ""
 				}
 			]
+		},
+		{
+			"path": "composer.json",
+			"bookmarks": [
+				{
+					"line": 55,
+					"column": 25,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "config/app_local-gosh.php",
+			"bookmarks": [
+				{
+					"line": 77,
+					"column": 10,
+					"label": ""
+				}
+			]
 		}
 	]
 }
