@@ -23,8 +23,5 @@ tasks:
       mysql -D cake_cms < config/.gitpod.seed.sql
     command: |
       bin/cake server
-
-ports:
-  - port: 8765
-    onOpen: open-preview
-    visibility: private
+      gp await-port 8765
+      gp preview --external http://localhost:8765/users/login
