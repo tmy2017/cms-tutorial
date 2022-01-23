@@ -24,4 +24,4 @@ tasks:
     command: |
       bin/cake server
   - command: | 
-      gp await-port 8765 && gp preview --external http://localhost:8765/users/login
+      gp await-port 8765 && gp preview http://localhost:8765/users/login
