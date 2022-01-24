@@ -25,4 +25,4 @@ tasks:
       bin/cake server
   # try found by https://sourcegraph.com/github.com/BabylonJS/Babylon.js/-/blob/.gitpod.yml?L7 
   - command: | 
-      gp await-port 8765 && sleep 3 && gp preview http://localhost:8765/users/login
+      gp await-port 8765 && sleep 3 && gp preview $(gp url 8765)/users/login
