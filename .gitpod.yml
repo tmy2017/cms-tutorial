@@ -23,5 +23,6 @@ tasks:
       mysql -D cake_cms < config/.gitpod.seed.sql
     command: |
       bin/cake server
+  # try found by https://sourcegraph.com/github.com/BabylonJS/Babylon.js/-/blob/.gitpod.yml?L7 
   - command: | 
-      gp await-port 8765 && gp preview http://localhost:8765/users/login
+      gp await-port 8765 && sleep 3 && gp preview http://localhost:8765/users/login
