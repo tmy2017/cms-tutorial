@@ -26,4 +26,6 @@ tasks:
   #     mysql -D cake_cms < config/.gitpod.seed.sql
   #   command: |
   #     bin/cake server
-prebuilds.branches: true
+github: 
+  prebuilds:
+    branches: true
