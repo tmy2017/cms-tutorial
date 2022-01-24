@@ -23,8 +23,8 @@ tasks:
        mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';"
        mysql -e "create database cake_cms"
        mysql -D cake_cms < config/.gitpod.seed.sql
+       composer install --no-interaction
     command: |
-       yes | composer install
        bin/cake server
 github: 
   prebuilds:
