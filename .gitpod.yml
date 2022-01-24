@@ -24,7 +24,7 @@ tasks:
        mysql -e "create database cake_cms"
        mysql -D cake_cms < config/.gitpod.seed.sql
     command: |
-       composer install --no-interaction
+       yes | composer install
        bin/cake server
 github: 
   prebuilds:
