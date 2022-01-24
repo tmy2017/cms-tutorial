@@ -8,23 +8,23 @@ tasks:
   # php & composer binary are all out of /workspace hence can not do as init... must do everytime before workspace starts
   # mysql is in workspace, hence can use init 
   # before + command for every new & *restart* workfspace
-  # - before: |
-  #     sudo add-apt-repository ppa:ondrej/php -y && \
-  #     sudo install-packages php7.2 php7.2-xdebug php7.2-mysql php7.2-intl php7.2-mbstring php7.2-curl php7.2-simplexml && \
-  #     sudo update-alternatives --set php /usr/bin/php7.2
-  #     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-  #     php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-  #     sudo php composer-setup.php --install-dir /usr/bin --filename composer
-  #     php -r "unlink('composer-setup.php');"    
-  #     cp config/.gitpod.env config/.env
-  #     cp config/.gitpod.app_local.php config/app_local.php
-  #     composer install --no-interaction
-  # # ONLY at NEW workspace, mysql is persisted - hence suitable for db seeding
-  -  init: |
+  - before: |
+      sudo add-apt-repository ppa:ondrej/php -y && \
+      sudo install-packages php7.2 php7.2-xdebug php7.2-mysql php7.2-intl php7.2-mbstring php7.2-curl php7.2-simplexml && \
+      sudo update-alternatives --set php /usr/bin/php7.2
+      php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+      sudo php composer-setup.php --install-dir /usr/bin --filename composer
+      php -r "unlink('composer-setup.php');"    
+      cp config/.gitpod.env config/.env
+      cp config/.gitpod.app_local.php config/app_local.php
+    #  composer install --no-interaction
+   # ONLY at NEW workspace, mysql is persisted - hence suitable for db seeding
+    init: |
        mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';"
        mysql -e "create database cake_cms"
        mysql -D cake_cms < config/.gitpod.seed.sql
-     command: |
+    command: |
        bin/cake server
 github: 
   prebuilds:
