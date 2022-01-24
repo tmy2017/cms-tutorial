@@ -18,13 +18,13 @@ tasks:
       php -r "unlink('composer-setup.php');"    
       cp config/.gitpod.env config/.env
       cp config/.gitpod.app_local.php config/app_local.php
-      yes | composer install 
    # ONLY at NEW workspace, mysql is persisted - hence suitable for db seeding
     init: |
        mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';"
        mysql -e "create database cake_cms"
        mysql -D cake_cms < config/.gitpod.seed.sql
     command: |
+       composer install --no-interaction
        bin/cake server
 github: 
   prebuilds:
