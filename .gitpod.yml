@@ -20,5 +20,5 @@ tasks:
       gp preview $(gp url 8765)/users/login
 
 github: 
-  branches:
-    prebuilds: true
+  prebuilds:
+    branches: true
