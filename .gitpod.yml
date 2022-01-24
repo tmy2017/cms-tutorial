@@ -1,5 +1,7 @@
 image: tmy2017/gitpod-pstorm-with-php71-mysql8:ver-1640846949
 tasks:
+  - command: | 
+      gp await-port 8765 && sleep 3 && gp preview $(gp url 8765)/users/login
   # change version php 
   # php & composer binary are all out of /workspace hence can not do as init... must do everytime before workspace starts
 
@@ -24,5 +26,3 @@ tasks:
     command: |
       bin/cake server
   # try found by https://sourcegraph.com/github.com/BabylonJS/Babylon.js/-/blob/.gitpod.yml?L7 
-  - command: | 
-      gp await-port 8765 && sleep 3 && gp preview $(gp url 8765)/users/login
